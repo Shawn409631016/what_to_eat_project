@@ -18,124 +18,142 @@ class FoodTypePage extends State<StatefullFoodTypePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('選取類別'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-      ),
-      body: Container(
-        color: const Color.fromARGB(255, 239, 239, 239),
-        padding: const EdgeInsets.all(10),
-        child: ListView(
-          children: <Widget>[
-            Card(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          SliverAppBar(
+            backgroundColor: Color.fromARGB(189, 41, 225, 48),
+            expandedHeight: 240,
+            flexibleSpace: FlexibleSpaceBar(
+              title: const Text(
+                '選擇類別',
               ),
-              child: ListTile(
-                horizontalTitleGap: 25,
-                contentPadding: const EdgeInsets.all(15),
-                leading: Image.asset('images/1.png'),
-                title: const Text(
-                  '台式料理',
-                  style: TextStyle(fontSize: 20),
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const StatefulTaiwanFoodPage()));
-                },
+              background: Image.network(
+                'https://images.deliveryhero.io/image/fd-tw/LH/ka7a-hero.jpg',
+                fit: BoxFit.cover,
               ),
             ),
-            Card(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: ListTile(
-                horizontalTitleGap: 25,
-                contentPadding: const EdgeInsets.all(15),
-                leading: Image.asset('images/1.png'),
-                title: const Text(
-                  '日式料理',
-                  style: TextStyle(fontSize: 20),
+            floating: true,
+            snap: true,
+            pinned: true,
+          )
+        ],
+        body: Container(
+          color: const Color.fromARGB(255, 239, 239, 239),
+          padding: const EdgeInsets.all(1),
+          margin: EdgeInsets.symmetric(horizontal: 1),
+          child: ListView(
+            children: <Widget>[
+              Card(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const StatefulJapanFoodPage()));
-                },
-              ),
-            ),
-            Card(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: ListTile(
-                horizontalTitleGap: 25,
-                contentPadding: const EdgeInsets.all(15),
-                leading: Image.asset('images/1.png'),
-                title: const Text(
-                  '韓式料理',
-                  style: TextStyle(fontSize: 20),
+                child: ListTile(
+                  horizontalTitleGap: 25,
+                  contentPadding: const EdgeInsets.all(15),
+                  leading: Image.asset('images/1.png'),
+                  title: const Text(
+                    '台式料理',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const StatefulTaiwanFoodPage()));
+                  },
                 ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const StatefulKoreaFoodPage()));
-                },
               ),
-            ),
-            Card(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: ListTile(
-                horizontalTitleGap: 25,
-                contentPadding: const EdgeInsets.all(15),
-                leading: Image.asset('images/1.png'),
-                title: const Text(
-                  '泰式料理',
-                  style: TextStyle(fontSize: 20),
+              Card(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const StatefulTaiFoodPage()));
-                },
-              ),
-            ),
-            Card(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: ListTile(
-                horizontalTitleGap: 25,
-                contentPadding: const EdgeInsets.all(15),
-                leading: Image.asset('images/1.png'),
-                title: const Text(
-                  '美式料理',
-                  style: TextStyle(fontSize: 20),
+                child: ListTile(
+                  horizontalTitleGap: 25,
+                  contentPadding: const EdgeInsets.all(15),
+                  leading: Image.asset('images/1.png'),
+                  title: const Text(
+                    '日式料理',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const StatefulJapanFoodPage()));
+                  },
                 ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const StatefulAmericanFoodPage()));
-                },
               ),
-            ),
-          ],
+              Card(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListTile(
+                  horizontalTitleGap: 25,
+                  contentPadding: const EdgeInsets.all(15),
+                  leading: Image.asset('images/1.png'),
+                  title: const Text(
+                    '韓式料理',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const StatefulKoreaFoodPage()));
+                  },
+                ),
+              ),
+              Card(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListTile(
+                  horizontalTitleGap: 25,
+                  contentPadding: const EdgeInsets.all(15),
+                  leading: Image.asset('images/1.png'),
+                  title: const Text(
+                    '泰式料理',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const StatefulTaiFoodPage()));
+                  },
+                ),
+              ),
+              Card(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListTile(
+                  horizontalTitleGap: 25,
+                  contentPadding: const EdgeInsets.all(15),
+                  leading: Image.asset('images/1.png'),
+                  title: const Text(
+                    '美式料理',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const StatefulAmericanFoodPage()));
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

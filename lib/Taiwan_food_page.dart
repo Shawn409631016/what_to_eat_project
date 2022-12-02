@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,6 +14,10 @@ class StatefulTaiwanFoodPage extends StatefulWidget {
 }
 
 class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
+  List<Object> _FoodList = [];
+
+  Future getFoodList() async {}
+
   List<Image> images = [
     Image.asset('images/1.png'),
     Image.asset('images/2.png'),

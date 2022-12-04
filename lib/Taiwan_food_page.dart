@@ -19,21 +19,6 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
     Image.asset('images/3.png'),
     Image.asset('images/4.jpeg'),
   ];
-  // List<String> names = [
-  //   '吐司:',
-  //   '牛肉麵:',
-  //   '炒泡麵:',
-  // ];
-  // List<String> calories = [
-  //   '熱量: 600大卡',
-  //   '熱量: 300大卡',
-  //   '熱量: 400大卡',
-  // ];
-  // List<String> uris = [
-  //   'https://www.ubereats.com/tw/store/%E5%95%83%E5%90%90%E5%8F%B8/5f5xXitMWBKa65Ai1MjMvg?utm_campaign=place-action-link&utm_medium=organic&utm_source=google',
-  //   'https://www.ubereats.com/tw/store/%E4%BA%AC%E8%8F%AF%E7%89%9B%E8%82%89%E9%BA%B5%E9%A4%A8/vsgpUOh3RxCIB9KOItQxeg?utm_campaign=place-action-link&utm_medium=organic&utm_source=google',
-  //   'https://www.ubereats.com/tw/store/juicy%E7%82%92%E6%B3%A1%E9%BA%B5/YfO3fRTMWYOzxcsabl4X9Q?utm_campaign=place-action-link&utm_medium=organic&utm_source=google',
-  // ];
 
   List<String> ii = [
     'zcbjIjnSN1BlLgaXz6Bi',
@@ -41,12 +26,9 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
     'hD4NKqXgNlWl0wWS0CLx',
     '拉麵'
   ];
+
   String currentII = 'zcbjIjnSN1BlLgaXz6Bi';
   Image currentImg = Image.asset('images/1.png');
-  // String currentDis = '吐司';
-  // String currentCalorie = '熱量: 600大卡';
-  // String currentUri =
-  //     'https://www.ubereats.com/tw/store/%E5%95%83%E5%90%90%E5%8F%B8/5f5xXitMWBKa65Ai1MjMvg?utm_campaign=place-action-link&utm_medium=organic&utm_source=google';
 
   Future<void> _launchUrl(uri) async {
     Uri uriToLaunch = Uri.parse(uri);

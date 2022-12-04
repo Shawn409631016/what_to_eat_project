@@ -102,7 +102,7 @@ class AmericanFoodPage extends State<StatefulAmericanFoodPage> {
                           foregroundColor: Colors.white,
                         ),
                         child: const Text(
-                          '外送資訊',
+                          '更多資訊',
                           style: TextStyle(fontSize: 20),
                         ),
                         onPressed: () {

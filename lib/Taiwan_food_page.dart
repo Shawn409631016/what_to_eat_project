@@ -14,21 +14,54 @@ class StatefulTaiwanFoodPage extends StatefulWidget {
 
 class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
   List<Image> images = [
-    Image.asset('images/1.png'),
-    Image.asset('images/2.png'),
-    Image.asset('images/3.png'),
-    Image.asset('images/4.jpeg'),
+    //刈包
+    Image.network(
+        'https://www.wecook123.com/wp-content/uploads/2017/05/%E7%BE%8E%E5%91%B3%E7%B4%A0%E5%89%B2%E5%8C%85_qIENndHSIq.jpg'),
+    //大腸包小腸
+    Image.network(
+        'https://taiwan.sharelife.tw/tw-feat-store-img/44721/c840130617285911.jpg'),
+    //大腸麵線
+    Image.network(
+        'https://tokyo-kitchen.icook.network/uploads/recipe/cover/411787/9eafdeb926cf6d63.jpg'),
+    //小籠包
+    Image.network(
+        'https://www.gomaji.com/blog/wp-content/uploads/2021/01/109694519_132704988503810_8168813254334701819_n-1068x801.jpg'),
+    //滷肉飯
+    Image.network(
+        'https://lordcat.tw/wp-content/uploads/2021/09/1631538408-378fce845ce05de4c29be3e870b50e13.jpg'),
+    //牛肉麵
+    Image.network(
+        'https://rs.joo.com.tw/website/uploads_product/website_794/P0079400074152_3_287162.jpg?_5966'),
+    //珍珠奶茶
+    Image.network(
+        'https://server.newslab.pts.org.tw/uploads/News/94/5d5b7874e5272.jpg'),
+    //臭豆腐
+    Image.network(
+        'https://1.bp.blogspot.com/-yNzqY9ymHPI/Xl0M7c66e_I/AAAAAAAAElA/A5D2mwWmd8s4RxK6_8EFsDlMkePjP4FEgCNcBGAsYHQ/s1600/1507044454-3089444673_l.jpg'),
+    //蚵仔煎
+    Image.network(
+        'https://www.tbocc.gov.tw/EatLib/Files/e5b3dd7c-ffd8-e411-85dc-e4115b13f301/Title/Title201509201540341.jpg'),
+    //豬血糕
+    Image.network(
+        'https://yukiblog.tw/wp-content/uploads/2020/04/20200412222626_64.jpg'),
   ];
 
   List<String> ii = [
-    'zcbjIjnSN1BlLgaXz6Bi',
-    'HheAP6w2MbtSqROjbXOv',
-    'hD4NKqXgNlWl0wWS0CLx',
-    '拉麵'
+    '刈包',
+    '大腸包小腸',
+    '大腸麵線',
+    '小籠包',
+    '滷肉飯',
+    '牛肉麵',
+    '珍珠奶茶',
+    '臭豆腐',
+    '蚵仔煎',
+    '豬血糕',
   ];
 
-  String currentII = 'zcbjIjnSN1BlLgaXz6Bi';
-  Image currentImg = Image.asset('images/1.png');
+  String currentII = '牛肉麵';
+  Image currentImg = Image.network(
+      'https://rs.joo.com.tw/website/uploads_product/website_794/P0079400074152_3_287162.jpg?_5966');
 
   Future<void> _launchUrl(uri) async {
     Uri uriToLaunch = Uri.parse(uri);
@@ -104,7 +137,7 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
                           foregroundColor: Colors.white,
                         ),
                         child: const Text(
-                          '外送資訊',
+                          '更多資訊',
                           style: TextStyle(fontSize: 20),
                         ),
                         onPressed: () {

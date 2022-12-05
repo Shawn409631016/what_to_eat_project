@@ -138,6 +138,32 @@ class AllFoodPage extends State<StatefulAllFoodPage> {
     //鹽烤鯖魚定食
     Image.network(
         'https://www.tonkatsu.com.tw/Files/Menu/14/%E9%B9%BD%E7%83%A4%E9%AF%96%E9%AD%9A%E5%AE%9A%E9%A3%9F-%E5%AE%9A%E9%A3%9F%E5%9C%96%E7%89%87--600-%C3%97-443.jpg'),
+    //奶油夾心海綿蛋糕
+    Image.network(
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Hostess-Twinkies.jpg/375px-Hostess-Twinkies.jpg'),
+    //玉米餡餅
+    Image.network(
+        'https://pic.pimg.tw/inraydesign/1610291083-2233839670-g_n.jpg'),
+    //玉米熱狗
+    Image.network('https://img95.699pic.com/xsj/07/0c/fv.jpg!/fh/300'),
+    //巨無霸
+    Image.network(
+        'https://www.gannett-cdn.com/authoring/2016/11/07/NFTU/ghows-LK-47249bbe-b323-473a-89f2-f3f603e35ce1-4fa35a93.jpeg'),
+    //雞炸牛排
+    Image.network(
+        'https://tblg.k-img.com/restaurant/images/Rvw/143183/640x640_rect_143183921.jpg'),
+    //斯帕姆午餐肉
+    Image.network(
+        'https://img.ien.com/files/base/indm/ien/image/2019/11/iStock_483839884.5dd6a594aa163.png?auto=format%2Ccompress&dpr=2&fit=max&q=70&w=700'),
+    //特大啃
+    Image.network(
+        'https://www.outsideonline.com/wp-content/uploads/2022/11/Turducken-h.jpg'),
+    //薯條
+    Image.network(
+        'https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fwww-cw-com-tw%2Farticle%2F202209%2Farticle-633153d69e7e1.jpg/?w=1260&format=webp'),
+    //墨西哥捲餅
+    Image.network(
+        'https://images.unsplash.com/photo-1568106690101-fd6822e876f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80'),
   ];
 
   List<String> docs = [
@@ -187,6 +213,16 @@ class AllFoodPage extends State<StatefulAllFoodPage> {
     '生魚片丼飯',
     '鰻魚蓋飯',
     '鹽烤鯖魚定食',
+    //西式
+    '奶油夾心海綿蛋糕',
+    '玉米餡餅',
+    '玉米熱狗',
+    '巨無霸',
+    '雞炸牛排',
+    '斯帕姆午餐肉',
+    '特大啃',
+    '薯條',
+    '墨西哥捲餅',
   ];
 
   String currentDoc = '泰式炒河粉';

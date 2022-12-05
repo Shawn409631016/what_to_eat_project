@@ -3,7 +3,7 @@ import 'Taiwan_food_page.dart';
 import 'Japan_food_page.dart';
 import 'Korea_food_page.dart';
 import 'Tai_food_page.dart';
-import 'American_food_page.dart';
+import 'west_food_page.dart';
 import 'All_food_page.dart';
 
 class StatefullFoodTypePage extends StatefulWidget {

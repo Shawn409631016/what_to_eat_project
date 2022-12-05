@@ -169,7 +169,7 @@ class FoodTypePage extends State<StatefullFoodTypePage> {
                   leading: Image.network(
                       'https://images.chinatimes.com/newsphoto/2020-07-08/1024/20200708001669.jpg'),
                   title: const Text(
-                    '美式料理',
+                    '西式料理',
                     style: TextStyle(fontSize: 20),
                   ),
                   onTap: () {
@@ -177,7 +177,7 @@ class FoodTypePage extends State<StatefullFoodTypePage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                const StatefulAmericanFoodPage()));
+                                const StatefulWestFoodPage()));
                   },
                 ),
               ),

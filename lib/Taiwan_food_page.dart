@@ -84,7 +84,7 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
       body: Container(
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
-              .collection('Taiwan Food')
+              .collection('All Food')
               .doc(currentDoc)
               .snapshots(),
           builder: (_, snapshot) {

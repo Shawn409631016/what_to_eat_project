@@ -11,7 +11,3 @@ Future<void> main() async {
     ),
   );
 }
-
-// void main() => runApp(MaterialApp(
-//       home: HomePage(),
-//     ));

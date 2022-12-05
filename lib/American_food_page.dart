@@ -19,13 +19,13 @@ class AmericanFoodPage extends State<StatefulAmericanFoodPage> {
     Image.asset('images/3.png'),
   ];
 
-  List<String> ii = [
+  List<String> docs = [
     '墨西哥捲餅',
     '漢堡',
     '炸雞',
   ];
 
-  String currentII = '墨西哥捲餅';
+  String currentDoc = '墨西哥捲餅';
   Image currentImg = Image.asset('images/1.png');
 
   Future<void> _launchUrl(uri) async {
@@ -50,7 +50,7 @@ class AmericanFoodPage extends State<StatefulAmericanFoodPage> {
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
               .collection('American Food')
-              .doc(currentII)
+              .doc(currentDoc)
               .snapshots(),
           builder: (_, snapshot) {
             if (snapshot.hasData) {
@@ -90,7 +90,7 @@ class AmericanFoodPage extends State<StatefulAmericanFoodPage> {
                           setState(() {
                             int index = Random().nextInt(images.length);
                             currentImg = images[index];
-                            currentII = ii[index];
+                            currentDoc = docs[index];
                           });
                         },
                       ),

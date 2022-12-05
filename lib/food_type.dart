@@ -21,20 +21,21 @@ class FoodTypePage extends State<StatefullFoodTypePage> {
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
-            backgroundColor: const Color.fromARGB(189, 41, 225, 48),
+            // backgroundColor: const Color.fromARGB(189, 41, 225, 48),
+            backgroundColor: Color.fromARGB(255, 255, 255, 255),
             expandedHeight: 240,
             flexibleSpace: FlexibleSpaceBar(
               title: const Text(
                 '選擇類別',
               ),
-              background: Image.network(
-                'https://images.deliveryhero.io/image/fd-tw/LH/ka7a-hero.jpg',
+              background: Image.asset(
+                'images/foodTypePageImg.jpg',
                 fit: BoxFit.cover,
               ),
             ),
             floating: true,
             snap: true,
-            pinned: true,
+            pinned: false,
           )
         ],
         body: Container(

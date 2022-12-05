@@ -49,7 +49,7 @@ class AmericanFoodPage extends State<StatefulAmericanFoodPage> {
       body: Container(
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
-              .collection('American Food')
+              .collection('All Food')
               .doc(currentDoc)
               .snapshots(),
           builder: (_, snapshot) {

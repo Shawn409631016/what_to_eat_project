@@ -4,6 +4,7 @@ import 'Japan_food_page.dart';
 import 'Korea_food_page.dart';
 import 'Tai_food_page.dart';
 import 'American_food_page.dart';
+import 'All_food_page.dart';
 
 class StatefullFoodTypePage extends StatefulWidget {
   const StatefullFoodTypePage({super.key});
@@ -44,6 +45,28 @@ class FoodTypePage extends State<StatefullFoodTypePage> {
           margin: const EdgeInsets.symmetric(horizontal: 1),
           child: ListView(
             children: <Widget>[
+              Card(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListTile(
+                  horizontalTitleGap: 25,
+                  contentPadding: const EdgeInsets.all(15),
+                  leading: Image.network(
+                      'https://images.unsplash.com/photo-1608835291093-394b0c943a75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80'),
+                  title: const Text(
+                    '所有類別',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const StatefulAllFoodPage()));
+                  },
+                ),
+              ),
               Card(
                 color: Colors.white,
                 shape: RoundedRectangleBorder(

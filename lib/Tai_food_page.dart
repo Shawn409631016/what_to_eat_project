@@ -14,19 +14,61 @@ class StatefulTaiFoodPage extends StatefulWidget {
 
 class TaiFoodPage extends State<StatefulTaiFoodPage> {
   List<Image> images = [
-    Image.asset('images/1.png'),
-    Image.asset('images/2.png'),
-    Image.asset('images/3.png'),
+    //打拋豬
+    Image.network(
+        'https://yijiefood.com.tw/wp-content/uploads/2020/06/%E6%B3%B0%E5%BC%8F%E6%89%93%E6%8B%8B%E8%B1%AC.jpg'),
+    //月亮蝦餅
+    Image.network(
+        'https://www.majitreats.com/uploads/userfiles/images/recipe-001.jpg'),
+    //椒麻雞
+    Image.network(
+        'https://images.chinatimes.com/newsphoto/2020-05-08/1024/20200508005482.jpg'),
+    //椰子燉雞湯
+    Image.network('https://onlinekaki.com/wp-content/uploads/2020/08/1.7.jpg'),
+    //泰式炒河粉
+    Image.network(
+        'https://angelala.tw/webp/wp-content/uploads/2022/03/don1.jpg.webp'),
+    //泰式炒飯
+    Image.network(
+        'https://www.unileverfoodsolutions.tw/dam/global-ufs/mcos/na/taiwan/calcmenu/recipes/TW-recipes/general/%E6%B3%B0%E5%BC%8F%E9%85%B8%E8%BE%A3%E6%B5%B7%E9%AE%AE%E7%82%92%E9%A3%AF/main-header.jpg'),
+    //紅咖哩
+    Image.network(
+        'https://img.ltn.com.tw/Upload/food/page/2016/09/11/160911-3372-7-dQasC.jpg'),
+    //綠咖哩雞
+    Image.network(
+        'https://angelala.tw/webp/wp-content/uploads/2020/09/th17.jpg.webp'),
+    //腰果炒雞肉
+    Image.network(
+        'https://tokyo-kitchen.icook.network/uploads/step/cover/1122398/884af4c88d137ead.jpg'),
+    //辛辣牛肉沙拉
+    Image.network(
+        'https://cp1.douguo.com/upload/caiku/6/0/b/690x390_6047acde97f9d525bf4213fe7de70bab.jpg'),
+    //辣味青木瓜沙拉
+    Image.network(
+        'https://i.epochtimes.com/assets/uploads/2019/11/Fotolia_43883026_Subscription_L-600x402.jpg'),
+    //辣蝦湯
+    Image.network(
+        'https://www.unileverfoodsolutions.com.sg/dam/global-ufs/mcos/SEA/calcmenu/recipes/SG-recipes/soups/%E6%B3%B0%E5%BC%8F%E5%86%AC%E8%8D%AB%E6%B1%A4/main-header.jpg'),
   ];
 
   List<String> ii = [
     '打拋豬',
     '月亮蝦餅',
     '椒麻雞',
+    '椰子燉雞湯',
+    '泰式炒河粉',
+    '泰式炒飯',
+    '紅咖哩',
+    '綠咖哩雞',
+    '腰果炒雞肉',
+    '辛辣牛肉沙拉',
+    '辣味青木瓜沙拉',
+    '辣蝦湯',
   ];
 
-  String currentII = '打拋豬';
-  Image currentImg = Image.asset('images/1.png');
+  String currentII = '泰式炒河粉';
+  Image currentImg = Image.network(
+      'https://angelala.tw/webp/wp-content/uploads/2022/03/don1.jpg.webp');
 
   Future<void> _launchUrl(uri) async {
     Uri uriToLaunch = Uri.parse(uri);

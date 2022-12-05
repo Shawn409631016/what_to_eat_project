@@ -40,13 +40,13 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
         'https://1.bp.blogspot.com/-yNzqY9ymHPI/Xl0M7c66e_I/AAAAAAAAElA/A5D2mwWmd8s4RxK6_8EFsDlMkePjP4FEgCNcBGAsYHQ/s1600/1507044454-3089444673_l.jpg'),
     //蚵仔煎
     Image.network(
-        'https://www.tbocc.gov.tw/EatLib/Files/e5b3dd7c-ffd8-e411-85dc-e4115b13f301/Title/Title201509201540341.jpg'),
+        'https://i0.wp.com/bobotravel.tw/wp-content/uploads/2022/10/JianJiaOysterPancake9.jpg?w=1280&ssl=1'),
     //豬血糕
     Image.network(
         'https://yukiblog.tw/wp-content/uploads/2020/04/20200412222626_64.jpg'),
   ];
 
-  List<String> ii = [
+  List<String> docs = [
     '刈包',
     '大腸包小腸',
     '大腸麵線',
@@ -59,7 +59,7 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
     '豬血糕',
   ];
 
-  String currentII = '牛肉麵';
+  String currentDoc = '牛肉麵';
   Image currentImg = Image.network(
       'https://rs.joo.com.tw/website/uploads_product/website_794/P0079400074152_3_287162.jpg?_5966');
 
@@ -85,7 +85,7 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
               .collection('Taiwan Food')
-              .doc(currentII)
+              .doc(currentDoc)
               .snapshots(),
           builder: (_, snapshot) {
             if (snapshot.hasData) {
@@ -125,7 +125,7 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
                           setState(() {
                             int index = Random().nextInt(images.length);
                             currentImg = images[index];
-                            currentII = ii[index];
+                            currentDoc = docs[index];
                           });
                         },
                       ),

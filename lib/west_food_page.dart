@@ -17,9 +17,10 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
   List<String> foodCals = [];
   List<String> foodUris = [];
   List<String> foodImgSrcs = [];
-  String currentName = "和風醬烤雞腿定食";
-  String currentCal = "755大卡";
-  String currentUri = "https://www.tonkatsu.com.tw/menu/menu";
+  String currentName = "墨西哥捲餅";
+  String currentCal = "206大卡";
+  String currentUri =
+      "https://ifoodie.tw/explore/%E5%8F%B0%E5%8C%97%E5%B8%82/list/%E5%A2%A8%E8%A5%BF%E5%93%A5%E6%8D%B2%E9%A4%85%E5%8F%B0%E5%8C%97";
   Image currentImg = Image.network(
       'https://www.tonkatsu.com.tw/Files/Menu/13/%E5%92%8C%E9%A2%A8%E9%86%AC%E7%83%A4%E9%9B%9E%E8%85%BF%E5%AE%9A%E9%A3%9F-%E5%AE%9A%E9%A3%9F%E5%9C%96%E7%89%87--600-%C3%97-443.jpg');
 
@@ -35,7 +36,7 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('日式料理'),
+        title: const Text('西式料理'),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         shadowColor: const Color.fromARGB(255, 248, 248, 248),

@@ -17,11 +17,11 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
   List<String> foodCals = [];
   List<String> foodUris = [];
   List<String> foodImgSrcs = [];
-  String currentName = "和風醬烤雞腿定食";
-  String currentCal = "755大卡";
-  String currentUri = "https://www.tonkatsu.com.tw/menu/menu";
+  String currentName = "牛肉麵";
+  String currentCal = "900大卡";
+  String currentUri = "https://www.storm.mg/lifestyle/3871508?page=1";
   Image currentImg = Image.network(
-      'https://www.tonkatsu.com.tw/Files/Menu/13/%E5%92%8C%E9%A2%A8%E9%86%AC%E7%83%A4%E9%9B%9E%E8%85%BF%E5%AE%9A%E9%A3%9F-%E5%AE%9A%E9%A3%9F%E5%9C%96%E7%89%87--600-%C3%97-443.jpg');
+      'https://rs.joo.com.tw/website/uploads_product/website_794/P0079400074152_3_287162.jpg?_5966');
 
   Future<void> _launchUrl(uri) async {
     Uri uriToLaunch = Uri.parse(uri);

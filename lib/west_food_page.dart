@@ -15,14 +15,18 @@ class StatefulWestFoodPage extends StatefulWidget {
 class WestFoodPage extends State<StatefulWestFoodPage> {
   List<String> foodNames = [];
   List<String> foodCals = [];
+  List<String> foodCarbs = [];
+  List<String> foodProteins = [];
   List<String> foodUris = [];
   List<String> foodImgSrcs = [];
   String currentName = "墨西哥捲餅";
   String currentCal = "206大卡";
+  String currentCarb = "33公克";
+  String currentProtein = "6公克";
   String currentUri =
       "https://ifoodie.tw/explore/%E5%8F%B0%E5%8C%97%E5%B8%82/list/%E5%A2%A8%E8%A5%BF%E5%93%A5%E6%8D%B2%E9%A4%85%E5%8F%B0%E5%8C%97";
   Image currentImg = Image.network(
-      'https://www.tonkatsu.com.tw/Files/Menu/13/%E5%92%8C%E9%A2%A8%E9%86%AC%E7%83%A4%E9%9B%9E%E8%85%BF%E5%AE%9A%E9%A3%9F-%E5%AE%9A%E9%A3%9F%E5%9C%96%E7%89%87--600-%C3%97-443.jpg');
+      'https://images.unsplash.com/photo-1568106690101-fd6822e876f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80');
 
   Future<void> _launchUrl(uri) async {
     Uri uriToLaunch = Uri.parse(uri);
@@ -56,6 +60,8 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
             for (var doc in snapshot.data!.docs) {
               foodNames.add(doc["name"]);
               foodCals.add(doc["calories"]);
+              foodCarbs.add(doc["碳水化合物"]);
+              foodProteins.add(doc["蛋白質"]);
               foodUris.add(doc["uri"]);
               foodImgSrcs.add(doc["img"]);
               count++;
@@ -89,10 +95,10 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
                                     style: const TextStyle(fontSize: 28)),
                                 Text('熱量: $currentCal',
                                     style: const TextStyle(fontSize: 20)),
-                                // Text('蛋白質: ${foodDocument["蛋白質"]}',
-                                //     style: const TextStyle(fontSize: 20)),
-                                // Text('碳水化合物: ${foodDocument["碳水化合物"]}',
-                                //     style: const TextStyle(fontSize: 20)),
+                                Text('蛋白質: $currentCarb',
+                                    style: const TextStyle(fontSize: 20)),
+                                Text('碳水化合物: $currentProtein',
+                                    style: const TextStyle(fontSize: 20)),
                               ],
                             ),
                           ),
@@ -119,6 +125,8 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
                           currentImg = Image.network(foodImgSrcs[index]);
                           currentName = foodNames[index];
                           currentCal = foodCals[index];
+                          currentCarb = foodCarbs[index];
+                          currentProtein = foodProteins[index];
                           currentUri = foodUris[index];
                         });
                       },

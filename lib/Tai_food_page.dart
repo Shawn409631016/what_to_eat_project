@@ -15,10 +15,14 @@ class StatefulTaiFoodPage extends StatefulWidget {
 class TaiFoodPage extends State<StatefulTaiFoodPage> {
   List<String> foodNames = [];
   List<String> foodCals = [];
+  List<String> foodCarbs = [];
+  List<String> foodProteins = [];
   List<String> foodUris = [];
   List<String> foodImgSrcs = [];
   String currentName = "泰式炒河粉";
   String currentCal = "800大卡";
+  String currentCarb = "70公克";
+  String currentProtein = "40公克";
   String currentUri =
       "https://ifoodie.tw/explore/%E5%8F%B0%E5%8C%97%E5%B8%82/list/%E6%B3%B0%E5%BC%8F%E7%82%92%E6%B2%B3%E7%B2%89";
   Image currentImg = Image.network(
@@ -55,6 +59,8 @@ class TaiFoodPage extends State<StatefulTaiFoodPage> {
             for (var doc in snapshot.data!.docs) {
               foodNames.add(doc["name"]);
               foodCals.add(doc["calories"]);
+              foodCarbs.add(doc["碳水化合物"]);
+              foodProteins.add(doc["蛋白質"]);
               foodUris.add(doc["uri"]);
               foodImgSrcs.add(doc["img"]);
               count++;
@@ -88,10 +94,10 @@ class TaiFoodPage extends State<StatefulTaiFoodPage> {
                                     style: const TextStyle(fontSize: 28)),
                                 Text('熱量: $currentCal',
                                     style: const TextStyle(fontSize: 20)),
-                                // Text('蛋白質: ${foodDocument["蛋白質"]}',
-                                //     style: const TextStyle(fontSize: 20)),
-                                // Text('碳水化合物: ${foodDocument["碳水化合物"]}',
-                                //     style: const TextStyle(fontSize: 20)),
+                                Text('蛋白質: $currentCarb',
+                                    style: const TextStyle(fontSize: 20)),
+                                Text('碳水化合物: $currentProtein',
+                                    style: const TextStyle(fontSize: 20)),
                               ],
                             ),
                           ),
@@ -118,6 +124,8 @@ class TaiFoodPage extends State<StatefulTaiFoodPage> {
                           currentImg = Image.network(foodImgSrcs[index]);
                           currentName = foodNames[index];
                           currentCal = foodCals[index];
+                          currentCarb = foodCarbs[index];
+                          currentProtein = foodProteins[index];
                           currentUri = foodUris[index];
                         });
                       },

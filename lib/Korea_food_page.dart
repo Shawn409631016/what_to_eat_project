@@ -15,13 +15,17 @@ class StatefulKoreaFoodPage extends StatefulWidget {
 class KoreaFoodPage extends State<StatefulKoreaFoodPage> {
   List<String> foodNames = [];
   List<String> foodCals = [];
+  List<String> foodCarbs = [];
+  List<String> foodProteins = [];
   List<String> foodUris = [];
   List<String> foodImgSrcs = [];
-  String currentName = "和風醬烤雞腿定食";
-  String currentCal = "755大卡";
-  String currentUri = "https://www.tonkatsu.com.tw/menu/menu";
+  String currentName = "朝鮮冷麵";
+  String currentCal = "106大卡";
+  String currentCarb = "14.53公克";
+  String currentProtein = "6.05公克";
+  String currentUri = "https://www.bella.tw/articles/travel&foodies/35792";
   Image currentImg = Image.network(
-      'https://www.tonkatsu.com.tw/Files/Menu/13/%E5%92%8C%E9%A2%A8%E9%86%AC%E7%83%A4%E9%9B%9E%E8%85%BF%E5%AE%9A%E9%A3%9F-%E5%AE%9A%E9%A3%9F%E5%9C%96%E7%89%87--600-%C3%97-443.jpg');
+      'http://foodyap.co.kr/shopimages/goldplate1/072004000001.jpg?1655101693');
 
   Future<void> _launchUrl(uri) async {
     Uri uriToLaunch = Uri.parse(uri);
@@ -35,7 +39,7 @@ class KoreaFoodPage extends State<StatefulKoreaFoodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('日式料理'),
+        title: const Text('韓式料理'),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         shadowColor: const Color.fromARGB(255, 248, 248, 248),
@@ -55,6 +59,8 @@ class KoreaFoodPage extends State<StatefulKoreaFoodPage> {
             for (var doc in snapshot.data!.docs) {
               foodNames.add(doc["name"]);
               foodCals.add(doc["calories"]);
+              foodCarbs.add(doc["碳水化合物"]);
+              foodProteins.add(doc["蛋白質"]);
               foodUris.add(doc["uri"]);
               foodImgSrcs.add(doc["img"]);
               count++;
@@ -88,10 +94,10 @@ class KoreaFoodPage extends State<StatefulKoreaFoodPage> {
                                     style: const TextStyle(fontSize: 28)),
                                 Text('熱量: $currentCal',
                                     style: const TextStyle(fontSize: 20)),
-                                // Text('蛋白質: ${foodDocument["蛋白質"]}',
-                                //     style: const TextStyle(fontSize: 20)),
-                                // Text('碳水化合物: ${foodDocument["碳水化合物"]}',
-                                //     style: const TextStyle(fontSize: 20)),
+                                Text('蛋白質: $currentCarb',
+                                    style: const TextStyle(fontSize: 20)),
+                                Text('碳水化合物: $currentProtein',
+                                    style: const TextStyle(fontSize: 20)),
                               ],
                             ),
                           ),
@@ -118,6 +124,8 @@ class KoreaFoodPage extends State<StatefulKoreaFoodPage> {
                           currentImg = Image.network(foodImgSrcs[index]);
                           currentName = foodNames[index];
                           currentCal = foodCals[index];
+                          currentCarb = foodCarbs[index];
+                          currentProtein = foodProteins[index];
                           currentUri = foodUris[index];
                         });
                       },

@@ -15,10 +15,14 @@ class StatefulTaiwanFoodPage extends StatefulWidget {
 class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
   List<String> foodNames = [];
   List<String> foodCals = [];
+  List<String> foodCarbs = [];
+  List<String> foodProteins = [];
   List<String> foodUris = [];
   List<String> foodImgSrcs = [];
   String currentName = "牛肉麵";
   String currentCal = "900大卡";
+  String currentCarb = "98公克";
+  String currentProtein = "52公克";
   String currentUri = "https://www.storm.mg/lifestyle/3871508?page=1";
   Image currentImg = Image.network(
       'https://rs.joo.com.tw/website/uploads_product/website_794/P0079400074152_3_287162.jpg?_5966');
@@ -55,6 +59,8 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
             for (var doc in snapshot.data!.docs) {
               foodNames.add(doc["name"]);
               foodCals.add(doc["calories"]);
+              foodCarbs.add(doc["碳水化合物"]);
+              foodProteins.add(doc["蛋白質"]);
               foodUris.add(doc["uri"]);
               foodImgSrcs.add(doc["img"]);
               count++;
@@ -88,10 +94,10 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
                                     style: const TextStyle(fontSize: 28)),
                                 Text('熱量: $currentCal',
                                     style: const TextStyle(fontSize: 20)),
-                                // Text('蛋白質: ${foodDocument["蛋白質"]}',
-                                //     style: const TextStyle(fontSize: 20)),
-                                // Text('碳水化合物: ${foodDocument["碳水化合物"]}',
-                                //     style: const TextStyle(fontSize: 20)),
+                                Text('蛋白質: $currentCarb',
+                                    style: const TextStyle(fontSize: 20)),
+                                Text('碳水化合物: $currentProtein',
+                                    style: const TextStyle(fontSize: 20)),
                               ],
                             ),
                           ),
@@ -118,6 +124,8 @@ class TaiwanFoodPage extends State<StatefulTaiwanFoodPage> {
                           currentImg = Image.network(foodImgSrcs[index]);
                           currentName = foodNames[index];
                           currentCal = foodCals[index];
+                          currentCarb = foodCarbs[index];
+                          currentProtein = foodProteins[index];
                           currentUri = foodUris[index];
                         });
                       },

@@ -15,10 +15,14 @@ class StatefulJapanFoodPage extends StatefulWidget {
 class JapanFoodPage extends State<StatefulJapanFoodPage> {
   List<String> foodNames = [];
   List<String> foodCals = [];
+  List<String> foodCarbs = [];
+  List<String> foodProteins = [];
   List<String> foodUris = [];
   List<String> foodImgSrcs = [];
   String currentName = "和風醬烤雞腿定食";
   String currentCal = "755大卡";
+  String currentCarb = "70公克";
+  String currentProtein = "33.6公克";
   String currentUri = "https://www.tonkatsu.com.tw/menu/menu";
   Image currentImg = Image.network(
       'https://www.tonkatsu.com.tw/Files/Menu/13/%E5%92%8C%E9%A2%A8%E9%86%AC%E7%83%A4%E9%9B%9E%E8%85%BF%E5%AE%9A%E9%A3%9F-%E5%AE%9A%E9%A3%9F%E5%9C%96%E7%89%87--600-%C3%97-443.jpg');
@@ -55,6 +59,8 @@ class JapanFoodPage extends State<StatefulJapanFoodPage> {
             for (var doc in snapshot.data!.docs) {
               foodNames.add(doc["name"]);
               foodCals.add(doc["calories"]);
+              foodCarbs.add(doc["碳水化合物"]);
+              foodProteins.add(doc["蛋白質"]);
               foodUris.add(doc["uri"]);
               foodImgSrcs.add(doc["img"]);
               count++;
@@ -88,10 +94,10 @@ class JapanFoodPage extends State<StatefulJapanFoodPage> {
                                     style: const TextStyle(fontSize: 28)),
                                 Text('熱量: $currentCal',
                                     style: const TextStyle(fontSize: 20)),
-                                // Text('蛋白質: ${foodDocument["蛋白質"]}',
-                                //     style: const TextStyle(fontSize: 20)),
-                                // Text('碳水化合物: ${foodDocument["碳水化合物"]}',
-                                //     style: const TextStyle(fontSize: 20)),
+                                Text('蛋白質: $currentCarb',
+                                    style: const TextStyle(fontSize: 20)),
+                                Text('碳水化合物: $currentProtein',
+                                    style: const TextStyle(fontSize: 20)),
                               ],
                             ),
                           ),
@@ -118,6 +124,8 @@ class JapanFoodPage extends State<StatefulJapanFoodPage> {
                           currentImg = Image.network(foodImgSrcs[index]);
                           currentName = foodNames[index];
                           currentCal = foodCals[index];
+                          currentCarb = foodCarbs[index];
+                          currentProtein = foodProteins[index];
                           currentUri = foodUris[index];
                         });
                       },

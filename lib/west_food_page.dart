@@ -13,50 +13,15 @@ class StatefulWestFoodPage extends StatefulWidget {
 }
 
 class WestFoodPage extends State<StatefulWestFoodPage> {
-  List<Image> images = [
-    //奶油夾心海綿蛋糕
-    Image.network(
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Hostess-Twinkies.jpg/375px-Hostess-Twinkies.jpg'),
-    //玉米餡餅
-    Image.network(
-        'https://pic.pimg.tw/inraydesign/1610291083-2233839670-g_n.jpg'),
-    //玉米熱狗
-    Image.network('https://img95.699pic.com/xsj/07/0c/fv.jpg!/fh/300'),
-    //巨無霸
-    Image.network(
-        'https://www.gannett-cdn.com/authoring/2016/11/07/NFTU/ghows-LK-47249bbe-b323-473a-89f2-f3f603e35ce1-4fa35a93.jpeg'),
-    //雞炸牛排
-    Image.network(
-        'https://tblg.k-img.com/restaurant/images/Rvw/143183/640x640_rect_143183921.jpg'),
-    //斯帕姆午餐肉
-    Image.network(
-        'https://img.ien.com/files/base/indm/ien/image/2019/11/iStock_483839884.5dd6a594aa163.png?auto=format%2Ccompress&dpr=2&fit=max&q=70&w=700'),
-    //特大啃
-    Image.network(
-        'https://www.outsideonline.com/wp-content/uploads/2022/11/Turducken-h.jpg'),
-    //薯條
-    Image.network(
-        'https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fwww-cw-com-tw%2Farticle%2F202209%2Farticle-633153d69e7e1.jpg/?w=1260&format=webp'),
-    //墨西哥捲餅
-    Image.network(
-        'https://images.unsplash.com/photo-1568106690101-fd6822e876f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80'),
-  ];
-
-  List<String> docs = [
-    '奶油夾心海綿蛋糕',
-    '玉米餡餅',
-    '玉米熱狗',
-    '巨無霸',
-    '雞炸牛排',
-    '斯帕姆午餐肉',
-    '特大啃',
-    '薯條',
-    '墨西哥捲餅',
-  ];
-
-  String currentDoc = '墨西哥捲餅';
+  List<String> foodNames = [];
+  List<String> foodCals = [];
+  List<String> foodUris = [];
+  List<String> foodImgSrcs = [];
+  String currentName = "和風醬烤雞腿定食";
+  String currentCal = "755大卡";
+  String currentUri = "https://www.tonkatsu.com.tw/menu/menu";
   Image currentImg = Image.network(
-      'https://images.unsplash.com/photo-1568106690101-fd6822e876f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80');
+      'https://www.tonkatsu.com.tw/Files/Menu/13/%E5%92%8C%E9%A2%A8%E9%86%AC%E7%83%A4%E9%9B%9E%E8%85%BF%E5%AE%9A%E9%A3%9F-%E5%AE%9A%E9%A3%9F%E5%9C%96%E7%89%87--600-%C3%97-443.jpg');
 
   Future<void> _launchUrl(uri) async {
     Uri uriToLaunch = Uri.parse(uri);
@@ -70,7 +35,7 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('西式料理'),
+        title: const Text('日式料理'),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         shadowColor: const Color.fromARGB(255, 248, 248, 248),
@@ -78,86 +43,103 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
       backgroundColor: Colors.white,
       body: Container(
         child: StreamBuilder(
-          stream: FirebaseFirestore.instance
-              .collection('All Food')
-              .doc(currentDoc)
-              .snapshots(),
+          stream:
+              FirebaseFirestore.instance.collection('West Food').snapshots(),
           builder: (_, snapshot) {
-            if (snapshot.hasData) {
-              var foodDocument = snapshot.data;
-              return Column(
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(
-                            height: 350,
-                            child: Card(
-                              child: currentImg,
-                            ),
-                          ),
-                          Text(foodDocument!["name"],
-                              style: const TextStyle(fontSize: 28)),
-                          Text('熱量: ${foodDocument["calories"]}',
-                              style: const TextStyle(fontSize: 20)),
-                          Text('蛋白質: ${foodDocument["蛋白質"]}',
-                              style: const TextStyle(fontSize: 20)),
-                          Text('碳水化合物: ${foodDocument["碳水化合物"]}',
-                              style: const TextStyle(fontSize: 20)),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      OutlinedButton(
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(150, 50),
-                          maximumSize: const Size(150, 50),
-                        ),
-                        child: const Text(
-                          '再抽一次',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            int index = Random().nextInt(images.length);
-                            currentImg = images[index];
-                            currentDoc = docs[index];
-                          });
-                        },
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(150, 50),
-                          maximumSize: const Size(150, 50),
-                          backgroundColor: Colors.black,
-                          foregroundColor: Colors.white,
-                        ),
-                        child: const Text(
-                          '更多資訊',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        onPressed: () {
-                          _launchUrl(foodDocument["uri"]);
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+            if (!snapshot.hasData) {
+              return const Center(
+                child: CircularProgressIndicator(),
               );
             }
-            if (snapshot.hasError) {
-              return Text('Error = ${snapshot.error}');
+            int count = 0;
+            for (var doc in snapshot.data!.docs) {
+              foodNames.add(doc["name"]);
+              foodCals.add(doc["calories"]);
+              foodUris.add(doc["uri"]);
+              foodImgSrcs.add(doc["img"]);
+              count++;
             }
-            return const Center(
-              child: CircularProgressIndicator(),
+
+            return Column(
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 350,
+                          child: Card(
+                            child: currentImg,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 500,
+                          height: 250,
+                          child: Card(
+                            color: const Color.fromARGB(255, 250, 212, 151),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(currentName,
+                                    style: const TextStyle(fontSize: 28)),
+                                Text('熱量: $currentCal',
+                                    style: const TextStyle(fontSize: 20)),
+                                // Text('蛋白質: ${foodDocument["蛋白質"]}',
+                                //     style: const TextStyle(fontSize: 20)),
+                                // Text('碳水化合物: ${foodDocument["碳水化合物"]}',
+                                //     style: const TextStyle(fontSize: 20)),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    OutlinedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(150, 50),
+                        maximumSize: const Size(150, 50),
+                      ),
+                      child: const Text(
+                        '再抽一次',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          int index = Random().nextInt(count);
+                          currentImg = Image.network(foodImgSrcs[index]);
+                          currentName = foodNames[index];
+                          currentCal = foodCals[index];
+                          currentUri = foodUris[index];
+                        });
+                      },
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(150, 50),
+                        maximumSize: const Size(150, 50),
+                        backgroundColor: Colors.black,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: const Text(
+                        '更多資訊',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        _launchUrl(currentUri);
+                      },
+                    ),
+                  ],
+                ),
+              ],
             );
           },
         ),

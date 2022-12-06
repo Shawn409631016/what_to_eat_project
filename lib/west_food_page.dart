@@ -95,11 +95,20 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
                       ),
                       child: Column(
                         children: <Widget>[
-                          currentImg,
+                          SizedBox(
+                            height: 350,
+                            child: Card(
+                              child: currentImg,
+                            ),
+                          ),
                           Text(foodDocument!["name"],
-                              style: const TextStyle(fontSize: 25)),
-                          Text(foodDocument["calories"],
-                              style: const TextStyle(fontSize: 25)),
+                              style: const TextStyle(fontSize: 28)),
+                          Text('熱量: ${foodDocument["calories"]}',
+                              style: const TextStyle(fontSize: 20)),
+                          Text('蛋白質: ${foodDocument["蛋白質"]}',
+                              style: const TextStyle(fontSize: 20)),
+                          Text('碳水化合物: ${foodDocument["碳水化合物"]}',
+                              style: const TextStyle(fontSize: 20)),
                         ],
                       ),
                     ),

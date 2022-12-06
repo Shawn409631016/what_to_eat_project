@@ -107,11 +107,32 @@ class TaiFoodPage extends State<StatefulTaiFoodPage> {
                       ),
                       child: Column(
                         children: <Widget>[
-                          currentImg,
-                          Text(foodDocument!["name"],
-                              style: const TextStyle(fontSize: 25)),
-                          Text(foodDocument["calories"],
-                              style: const TextStyle(fontSize: 25)),
+                          SizedBox(
+                            height: 350,
+                            child: Card(
+                              child: currentImg,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 500,
+                            height: 250,
+                            child: Card(
+                              color: Color.fromARGB(255, 250, 212, 151),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(foodDocument!["name"],
+                                      style: const TextStyle(fontSize: 28)),
+                                  Text('熱量: ${foodDocument["calories"]}',
+                                      style: const TextStyle(fontSize: 20)),
+                                  Text('蛋白質: ${foodDocument["蛋白質"]}',
+                                      style: const TextStyle(fontSize: 20)),
+                                  Text('碳水化合物: ${foodDocument["碳水化合物"]}',
+                                      style: const TextStyle(fontSize: 20)),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

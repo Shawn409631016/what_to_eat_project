@@ -78,7 +78,7 @@ class WestFoodPage extends State<StatefulWestFoodPage> {
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: 350,
+                          height: 300,
                           child: Card(
                             child: currentImg,
                           ),

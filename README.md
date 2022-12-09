@@ -2,4 +2,4 @@
 
 A Flutter random foods app.
 
-<img src="gif/WhatToEat.gif" width="150" /><img src="gif/2.gif" width="150" style="margin-left: 10px" />
+<img src="gif/WhatToEat.gif" width="150" />

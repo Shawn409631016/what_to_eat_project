@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>840586327830-qjbfllk6cb7es6hkcd8q12iu2gf73536.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.840586327830-qjbfllk6cb7es6hkcd8q12iu2gf73536</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA1KQ-SqHlS79NnIj-ABKX0z5ffhbnkz24</string>
+	<key>GCM_SENDER_ID</key>
+	<string>840586327830</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.whatToEatProject</string>
+	<key>PROJECT_ID</key>
+	<string>what-to-eat-project-43983</string>
+	<key>STORAGE_BUCKET</key>
+	<string>what-to-eat-project-43983.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:840586327830:ios:17e6c8b09a29fe7faa4237</string>
+</dict>
+</plist>

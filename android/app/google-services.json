@@ -1,39 +1,39 @@
 {
-  "project_info": {
-    "project_number": "840586327830",
-    "project_id": "what-to-eat-project-43983",
-    "storage_bucket": "what-to-eat-project-43983.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:840586327830:android:088dbbf7bbfe0bb4aa4237",
-        "android_client_info": {
-          "package_name": "com.example.what_to_eat_project"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "840586327830-tc0jocb0dmrnhvqr2bnouplps4a88j2j.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBOJAjOhJv8D6WLQZRAj6qr5T8p3nr7Ccc"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "840586327830-tc0jocb0dmrnhvqr2bnouplps4a88j2j.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "configuration_version": "1"
+	"project_info": {
+		"project_number": "840586327830",
+		"project_id": "what-to-eat-project-43983",
+		"storage_bucket": "what-to-eat-project-43983.appspot.com"
+	},
+	"client": [
+		{
+			"client_info": {
+				"mobilesdk_app_id": "1:840586327830:android:088dbbf7bbfe0bb4aa4237",
+				"android_client_info": {
+					"package_name": "com.shawn.what_to_eat"
+				}
+			},
+			"oauth_client": [
+				{
+					"client_id": "840586327830-tc0jocb0dmrnhvqr2bnouplps4a88j2j.apps.googleusercontent.com",
+					"client_type": 3
+				}
+			],
+			"api_key": [
+				{
+					"current_key": "AIzaSyBOJAjOhJv8D6WLQZRAj6qr5T8p3nr7Ccc"
+				}
+			],
+			"services": {
+				"appinvite_service": {
+					"other_platform_oauth_client": [
+						{
+							"client_id": "840586327830-tc0jocb0dmrnhvqr2bnouplps4a88j2j.apps.googleusercontent.com",
+							"client_type": 3
+						}
+					]
+				}
+			}
+		}
+	],
+	"configuration_version": "1"
 }

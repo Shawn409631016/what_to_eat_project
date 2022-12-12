@@ -30,7 +30,7 @@ To run this app on your device or emulator, you will need to have the latest ver
 
 ## App Status
 
-This app is currently available in the Taiwan region and only has a Chinese version. It is also in the review process for the Google Play Store. We will update this `README.md` file once the app has been published and is available for download in other regions or in other languages.
+This app is currently available in Taiwan region and only has a Chinese version. It is also in the review process for the Google Play Store. We will update this `README.md` file once the app has been published and is available for download in other regions or in other languages.
 
 ## About ChatGPT
 

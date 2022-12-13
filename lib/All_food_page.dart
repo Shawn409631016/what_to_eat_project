@@ -58,8 +58,8 @@ class AllFoodPage extends State<StatefulAllFoodPage> {
             for (var doc in snapshot.data!.docs) {
               foodNames.add(doc["name"]);
               foodCals.add(doc["calories"]);
-              foodCarbs.add(doc["碳水化合物"]);
-              foodProteins.add(doc["蛋白質"]);
+              foodCarbs.add(doc["carbohydrates"]);
+              foodProteins.add(doc["protein"]);
               foodUris.add(doc["uri"]);
               foodImgSrcs.add(doc["img"]);
               count++;

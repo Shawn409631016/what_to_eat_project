@@ -66,88 +66,90 @@ class TaiFoodPage extends State<StatefulTaiFoodPage> {
               count++;
             }
 
-            return Column(
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: 300,
-                          child: Card(
-                            child: currentImg,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 500,
-                          height: 250,
-                          child: Card(
-                            color: const Color.fromARGB(255, 250, 212, 151),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(currentName,
-                                    style: const TextStyle(fontSize: 28)),
-                                Text('熱量: $currentCal',
-                                    style: const TextStyle(fontSize: 20)),
-                                Text('蛋白質: $currentCarb',
-                                    style: const TextStyle(fontSize: 20)),
-                                Text('碳水化合物: $currentProtein',
-                                    style: const TextStyle(fontSize: 20)),
-                              ],
+            return SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: 300,
+                            child: Card(
+                              child: currentImg,
                             ),
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            width: 500,
+                            height: 250,
+                            child: Card(
+                              color: const Color.fromARGB(255, 250, 212, 151),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(currentName,
+                                      style: const TextStyle(fontSize: 28)),
+                                  Text('熱量: $currentCal',
+                                      style: const TextStyle(fontSize: 20)),
+                                  Text('蛋白質: $currentCarb',
+                                      style: const TextStyle(fontSize: 20)),
+                                  Text('碳水化合物: $currentProtein',
+                                      style: const TextStyle(fontSize: 20)),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    OutlinedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(150, 50),
-                        maximumSize: const Size(150, 50),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      OutlinedButton(
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(150, 50),
+                          maximumSize: const Size(150, 50),
+                        ),
+                        child: const Text(
+                          '再抽一次',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            int index = Random().nextInt(count);
+                            currentImg = Image.network(foodImgSrcs[index]);
+                            currentName = foodNames[index];
+                            currentCal = foodCals[index];
+                            currentCarb = foodCarbs[index];
+                            currentProtein = foodProteins[index];
+                            currentUri = foodUris[index];
+                          });
+                        },
                       ),
-                      child: const Text(
-                        '再抽一次',
-                        style: TextStyle(fontSize: 20),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(150, 50),
+                          maximumSize: const Size(150, 50),
+                          backgroundColor: Colors.black,
+                          foregroundColor: Colors.white,
+                        ),
+                        child: const Text(
+                          '更多資訊',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onPressed: () {
+                          _launchUrl(currentUri);
+                        },
                       ),
-                      onPressed: () {
-                        setState(() {
-                          int index = Random().nextInt(count);
-                          currentImg = Image.network(foodImgSrcs[index]);
-                          currentName = foodNames[index];
-                          currentCal = foodCals[index];
-                          currentCarb = foodCarbs[index];
-                          currentProtein = foodProteins[index];
-                          currentUri = foodUris[index];
-                        });
-                      },
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(150, 50),
-                        maximumSize: const Size(150, 50),
-                        backgroundColor: Colors.black,
-                        foregroundColor: Colors.white,
-                      ),
-                      child: const Text(
-                        '更多資訊',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      onPressed: () {
-                        _launchUrl(currentUri);
-                      },
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             );
           },
         ),
